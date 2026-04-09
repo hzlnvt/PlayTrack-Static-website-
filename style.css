@@ -39,9 +39,18 @@ nav {
   box-shadow: 0 10px 24px rgba(8, 12, 26, 0.26);
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
+  gap: 14px;
+  flex-wrap: nowrap;
+}
+
+.logo {
+  flex: 0 0 auto;
+  min-width: 0;
 }
 .logo img {
-  height: 44px;
+  height: clamp(30px, 4vw, 44px);
+  width: auto;
+  display: block;
 }
 .logo-dark{
   display: none;
@@ -63,7 +72,25 @@ nav {
 nav ul {
   display: flex;
   list-style: none;
-  gap: 22px;
+  gap: clamp(12px, 2.1vw, 22px);
+  margin-left: auto;
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+
+nav ul::-webkit-scrollbar {
+  display: none;
+}
+
+nav li {
+  flex: 0 0 auto;
 }
 nav a {
   color: #d8dceb;
@@ -352,46 +379,33 @@ nav a[aria-current="page"]::after {
 @media (max-width: 760px) {
   nav {
     padding: 12px 14px;
-    flex-direction: column;
-    gap: 6px;
-    align-items: center;
+    gap: 10px;
   }
 
   .logo img {
-    height: 36px;
+    height: clamp(26px, 7vw, 34px);
   }
 
   nav ul {
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 14px;
-    width: min(100%, 460px);
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 0 4px 2px;
-    scrollbar-width: none;
-  }
-
-  nav ul::-webkit-scrollbar {
-    display: none;
-  }
-
-  nav li {
-    flex: 0 0 auto;
+    gap: 12px;
+    justify-content: flex-end;
+    width: auto;
+    padding: 0 0 2px;
   }
 
   nav a {
     white-space: nowrap;
-    font-size: 0.96rem;
+    font-size: 0.93rem;
   }
 
   .site-footer {
-    padding: 40px 20px 22px;
+    padding: 36px 16px 20px;
   }
 
   .footer-shell {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    gap: 16px;
+    align-items: start;
   }
 
   .footer-brand,
@@ -418,15 +432,15 @@ nav a[aria-current="page"]::after {
 
   .footer-bottom {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     gap: 6px;
   }
 }
 
 @media (max-width: 500px) {
   nav {
-    gap: 5px;
+    gap: 8px;
     padding: 10px 12px;
   }
 
@@ -436,16 +450,16 @@ nav a[aria-current="page"]::after {
 
   nav a {
     padding: 4px 0;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
   }
 
   .footer-shell {
-    grid-template-columns: 1fr;
-    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 
   .site-footer {
-    padding: 34px 14px 18px;
+    padding: 32px 14px 18px;
   }
 
   .footer-brand p,
