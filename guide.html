@@ -372,10 +372,17 @@
     document.addEventListener("DOMContentLoaded", function () {
       document.documentElement.style.scrollPaddingTop = "0px";
       const body = document.body;
+      const nav = document.querySelector("nav");
       const sidebar = document.getElementById("guideSidebar");
       const hamburger = document.getElementById("guideHamburger");
       const overlay = document.getElementById("guideOverlay");
       const links = sidebar.querySelectorAll("a");
+
+      function syncGuideNavOffset() {
+        if (!nav) return;
+        const navHeight = nav.getBoundingClientRect().height;
+        document.documentElement.style.setProperty("--guide-nav-offset", navHeight + "px");
+      }
 
       function openSidebar() {
         body.classList.add("sidebar-open");
@@ -412,6 +419,9 @@
           target.classList.add("active");
         }
       }
+
+      syncGuideNavOffset();
+      window.addEventListener("resize", syncGuideNavOffset);
     });
   </script>
 </body>
