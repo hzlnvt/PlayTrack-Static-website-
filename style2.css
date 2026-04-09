@@ -102,7 +102,7 @@ nav ul {
   list-style: none;
   gap: clamp(12px, 2.1vw, 22px);
   margin-left: auto;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   min-width: 0;
   justify-content: flex-end;
   flex-wrap: nowrap;
@@ -473,8 +473,10 @@ nav a[aria-current="page"]::after {
   nav ul {
     gap: 14px;
     justify-content: flex-end;
-    width: auto;
-    padding: 0 8px 2px 14px;
+    width: calc(100% - 78px);
+    max-width: calc(100% - 78px);
+    padding: 0 10px 2px 10px;
+    scroll-padding-left: 10px;
   }
 
   nav a {
@@ -528,11 +530,19 @@ nav a[aria-current="page"]::after {
     grid-column: 1 / -1;
   }
 
+  .footer-feedback {
+    margin-top: 8px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(214, 224, 246, 0.16);
+  }
+
   .footer-brand p,
   .footer-feedback p {
     max-width: none;
     font-size: 0.98rem;
     line-height: 1.72;
+    margin-top: 4px;
+    margin-bottom: 8px;
   }
 
   .footer-links-group h4,
@@ -543,6 +553,10 @@ nav a[aria-current="page"]::after {
 
   .footer-links {
     gap: 8px;
+  }
+
+  .footer-links li {
+    line-height: 1.5;
   }
 
   .footer-bottom {
