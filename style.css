@@ -388,16 +388,16 @@ nav a[aria-current="page"]::after {
 
   nav ul {
     gap: 14px;
-    justify-content: flex-end;
-    width: calc(100% - 78px);
-    max-width: calc(100% - 78px);
-    padding: 0 10px 2px 10px;
-    scroll-padding-left: 10px;
+    justify-content: flex-start;
+    width: calc(100% - 86px);
+    max-width: calc(100% - 86px);
+    padding: 0 6px 2px 6px;
+    scroll-padding-left: 6px;
   }
 
   nav a {
     white-space: nowrap;
-    font-size: 0.92rem;
+    font-size: clamp(0.82rem, 2.9vw, 0.94rem);
     padding: 5px 0;
   }
 
@@ -407,8 +407,12 @@ nav a[aria-current="page"]::after {
 
   .footer-shell {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px 18px;
+    gap: 22px 20px;
     align-items: start;
+  }
+
+  .footer-brand {
+    padding-bottom: 4px;
   }
 
   .footer-brand,
@@ -417,8 +421,8 @@ nav a[aria-current="page"]::after {
   }
 
   .footer-feedback {
-    margin-top: 8px;
-    padding-top: 10px;
+    margin-top: 12px;
+    padding-top: 14px;
     border-top: 1px solid rgba(214, 224, 246, 0.16);
   }
 
@@ -442,7 +446,11 @@ nav a[aria-current="page"]::after {
   }
 
   .footer-links li {
-    line-height: 1.5;
+    line-height: 1.58;
+  }
+
+  .footer-links a {
+    padding: 1px 0;
   }
 
   .footer-bottom {
@@ -467,12 +475,12 @@ nav a[aria-current="page"]::after {
 
   nav a {
     padding: 5px 0;
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 3.5vw, 0.92rem);
   }
 
   .footer-shell {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    gap: 18px 14px;
   }
 
   .site-footer {
@@ -495,5 +503,12 @@ nav a[aria-current="page"]::after {
 
   .hero {
     padding: 150px 18px 40px;
+  }
+}
+
+@media (max-width: 390px) {
+  .footer-shell {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 }
