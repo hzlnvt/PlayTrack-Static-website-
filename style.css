@@ -30,8 +30,8 @@ nav {
   width: 100%;
   top: 0;
   left: 0;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
   padding: 16px 60px;
   background: linear-gradient(180deg, rgba(18, 24, 42, 0.58) 0%, rgba(18, 24, 42, 0.2) 72%, rgba(18, 24, 42, 0) 100%);
@@ -39,8 +39,7 @@ nav {
   box-shadow: 0 10px 24px rgba(8, 12, 26, 0.26);
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
-  gap: 14px;
-  flex-wrap: nowrap;
+  column-gap: clamp(10px, 2.2vw, 20px);
 }
 
 .logo {
@@ -73,8 +72,8 @@ nav ul {
   display: flex;
   list-style: none;
   gap: clamp(12px, 2.1vw, 22px);
-  margin-left: auto;
-  flex: 0 1 auto;
+  margin-left: 0;
+  flex: 0 0 auto;
   min-width: 0;
   justify-content: flex-end;
   flex-wrap: nowrap;
@@ -83,6 +82,7 @@ nav ul {
   white-space: nowrap;
   scrollbar-width: none;
   padding-bottom: 2px;
+  width: 100%;
 }
 
 nav ul::-webkit-scrollbar {
@@ -93,36 +93,43 @@ nav li {
   flex: 0 0 auto;
 }
 nav a {
+  display: inline-block;
   color: #d8dceb;
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
-  padding: 6px 2px;
+  padding: 6px 8px;
+  border-radius: 8px;
   position: relative;
-  transition: color 0.25s ease;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 nav ul a::after {
   content: "";
   width: 0;
-  height: 2px;
+  height: 3px;
   background: var(--accent);
   position: absolute;
-  left: 0;
-  bottom: -4px;
+  left: 8px;
+  bottom: -3px;
   transition: width 0.25s ease;
 }
 nav a:hover::after {
-  width: 100%;
+  width: calc(100% - 16px);
 }
 nav a:hover {
   color: var(--accent);
 }
+
+nav a:focus-visible {
+  outline: 2px solid rgba(255, 195, 168, 0.8);
+  outline-offset: 2px;
+}
 nav a[aria-current="page"] {
-  color: #ffffff;
-  text-shadow: 0 0 14px rgba(255, 163, 127, 0.35);
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(255, 163, 127, 0.28);
 }
 nav a[aria-current="page"]::after {
-  width: 100%;
+  width: calc(100% - 16px);
 }
 .hero {
   position: relative;
@@ -379,7 +386,7 @@ nav a[aria-current="page"]::after {
 @media (max-width: 760px) {
   nav {
     padding: 14px 16px;
-    gap: 12px;
+    column-gap: 6px;
   }
 
   .logo img {
@@ -388,11 +395,12 @@ nav a[aria-current="page"]::after {
 
   nav ul {
     gap: 14px;
-    justify-content: flex-start;
-    width: calc(100% - 86px);
-    max-width: calc(100% - 86px);
-    padding: 0 6px 2px 6px;
+    justify-content: flex-end;
+    padding: 0 8px 2px 6px;
     scroll-padding-left: 6px;
+    scroll-padding-right: 8px;
+    width: 100%;
+    max-width: 100%;
   }
 
   nav a {
@@ -463,7 +471,7 @@ nav a[aria-current="page"]::after {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 560px) {
   nav {
     gap: 10px;
     padding: 12px 14px;
