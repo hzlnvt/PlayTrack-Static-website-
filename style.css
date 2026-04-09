@@ -401,6 +401,7 @@ nav a[aria-current="page"]::after {
     scroll-padding-right: 8px;
     width: 100%;
     max-width: 100%;
+    -webkit-overflow-scrolling: touch;
   }
 
   nav a {

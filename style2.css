@@ -465,8 +465,8 @@ nav a[aria-current="page"]::after {
 
 @media (max-width: 760px) {
   nav {
-   padding: 14px 16px;
-   column-gap: 6px;
+    padding: 14px 16px;
+    column-gap: 6px;
   }
 
   .logo a {
@@ -485,6 +485,7 @@ nav a[aria-current="page"]::after {
     scroll-padding-right: 8px;
     width: 100%;
     max-width: 100%;
+    -webkit-overflow-scrolling: touch;
   }
 
   nav a {
