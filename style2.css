@@ -1489,7 +1489,8 @@ body.sidebar-open .guide-hamburger span:nth-child(3) {
 
 .guide-overview h1 {
   font-size: clamp(3.2rem, 7.2vw, 5rem) !important;
-  line-height: 1.03;
+  line-height: 1.1;
+  padding: 0.07em 0;
   margin-bottom: 12px;
   background: linear-gradient(135deg, var(--accent-deep), var(--accent));
   background-clip: text;
@@ -1700,38 +1701,6 @@ body.sidebar-open .guide-hamburger span:nth-child(3) {
   font-size: clamp(0.98rem, 1.08vw, 1.12rem);
   line-height: 1.7;
   color: #dbe3f4;
-}
-
-@media (min-width: 1100px) {
-  .guide-overview {
-    min-height: clamp(600px, 78vh, 760px);
-  }
-
-  .guide-overview .section-head {
-    text-align: center;
-    margin-bottom: 22px;
-  }
-
-  .guide-overview h1 {
-    font-size: clamp(3rem, 6.2vw, 4.8rem) !important;
-    line-height: 1.03;
-    max-width: none;
-  }
-
-  .guide-overview .section-head p {
-    margin: 0 auto;
-    max-width: 62ch;
-  }
-
-  .overview-highlights {
-    max-width: 980px;
-    margin: 0 auto 8px;
-  }
-
-  .overview-panels.single {
-    max-width: 980px;
-    margin-top: 56px;
-  }
 }
 
 .guide-section h1 {
